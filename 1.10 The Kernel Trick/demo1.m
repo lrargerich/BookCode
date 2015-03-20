@@ -1,0 +1,12 @@
+load('kernelset1.mat');
+red=data(labels==1,:);
+blue=data(labels==0,:);
+sigma=1;
+project = @(data, sigma) sum(exp(-(( Pdist2(data,data) .^ 2) ./ ( 2*sigma^2))));
+blue_z = project(blue, sigma);
+red_z = project(red, sigma);
+figure;
+scatter3(red(:,1), red(:,2), red_z, 'r');
+hold on;
+grid on;
+scatter3(blue(:,1), blue(:,2), blue_z, 'b');

@@ -1,0 +1,1 @@
+[base,idx]=Kmeans(mini,400,30);
